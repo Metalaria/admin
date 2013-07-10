@@ -44,7 +44,7 @@ $execute = mysqli_query($con, "select id_user from usuarios
     WHERE id_user=(SELECT MAX(id_user) FROM usuarios)");
 $row = mysqli_fetch_array($execute);
 $var1 = $row['id_user'];
-echo "valor de var1 como resultado de la consulta". $var1."<br/>";
+
 $userid=create_user($var1);
 $contrasenna=$_POST['pass'] ;
 $info=$_POST['info'];
