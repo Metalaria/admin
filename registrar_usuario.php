@@ -62,7 +62,7 @@ header('refresh: 3; url= registrar.php');
     echo "Debe rellenar la contrase&ntilde;a"."<br/>";
     header('refresh: 3; url= registrar.php');
 }
-if (validar_clave($contrasenna, $error_clave)==true){
+elseif (validar_clave($contrasenna, $error_clave)==true){
 $date= mysqli_query($con, "SELECT now()");
 $row4 = mysqli_fetch_array($date);
 $fecha=$row4['now()'];
@@ -72,7 +72,7 @@ mysqli_query($con, "insert into usuarios (password, descripcion, id_user,
 
 echo "Ususario registrado con exito"."<br/>";
 } else{
-      echo "contrase&ntilde;a no válida: " . $error_clave."<br/>";
+      echo "contrase&ntilde;a no v&aacute;lida: " . $error_clave."<br/>";
    }
 
 header('refresh: 3; url= exito.php');
