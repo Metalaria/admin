@@ -8,22 +8,12 @@ if (!isset($_SESSION['id_user'])) {
 $con = new mysqli('localhost', 'root', '', 'prueba');
 //$busqueda =""; 
 $busqueda=$_POST['busqueda'] ;
-//$busqueda; 
-//$all="";
+
 $all="";
 $all =$_POST['todos'] ;
 
-if(empty($_POST['busqueda'])){
-    echo "<form name= 'form1' action='atras.php' method='POST' >
-        
-            <input type='submit' name='regresar' value='regresar' />
-        </form>";
-    //header("refresh: 3; url= buscar.php");
-} 
-
 if ($busqueda!=""){
-    /*$busca = mysqli_query($con, "select usuario, descripcion from usuarios 
-        where usuario like '%$busqueda%'");*/
+   
     $busca = mysqli_query($con, " SELECT id_user, descripcion FROM usuarios WHERE
         id_user LIKE '%$busqueda%'"); 
     while ($f =  mysqli_fetch_array($busca)){
