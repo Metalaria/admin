@@ -54,11 +54,14 @@ $resultado=mysqli_query($con, $query);
 $rowcount=mysqli_num_rows($resultado);
 if( $rowcount != 0 ){
 echo "Ese usuario ya existe, elije otro"."<br/>";
-//header('refresh: 3; url= registrar.php');
-} else {
-if(empty($_POST['info'])){
+header('refresh: 3; url= registrar.php');
+} elseif(empty($_POST['info'])){
     echo "Debe rellenar la descripci&oacute;n del usuario"."<br/>";
-}  else {
+    header('refresh: 3; url= registrar.php');
+}  elseif(empty($_POST['pass'])) {
+    echo "Debe rellenar la contrase&ntilde;a"."<br/>";
+    header('refresh: 3; url= registrar.php');
+}
 if (validar_clave($contrasenna, $error_clave)==true){
 $date= mysqli_query($con, "SELECT now()");
 $row4 = mysqli_fetch_array($date);
@@ -71,9 +74,10 @@ echo "Ususario registrado con exito"."<br/>";
 } else{
       echo "contrase&ntilde;a no válida: " . $error_clave."<br/>";
    }
-//$cont = $cont+1;
-//header('refresh: 3; url= exito.php');
 
-}
-}
+header('refresh: 3; url= exito.php');
+
+
+ 
+
 ?>
