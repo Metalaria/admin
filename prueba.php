@@ -4,7 +4,7 @@ if (!isset($_SESSION['id_user'])) {
             echo "No ha iniciado sesi&oacute;n";
             header("refresh: 3; url= index.php");   
         }else {
-$con = new mysqli('localhost', 'root', 'app.Root', 'prueba');
+$con = new mysqli('localhost', 'root', '', 'prueba');
 
 function create_user($var){
 $prefix = "U";
